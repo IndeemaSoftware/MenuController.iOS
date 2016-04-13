@@ -13,6 +13,9 @@
 		05B59A291CBE8FD5005B23D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05B59A281CBE8FD5005B23D5 /* Assets.xcassets */; };
 		05B59A2C1CBE8FD5005B23D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B59A2A1CBE8FD5005B23D5 /* LaunchScreen.storyboard */; };
 		05B59A371CBE9018005B23D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A361CBE9018005B23D5 /* AppDelegate.m */; };
+		05B59A411CBE90B6005B23D5 /* EETitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A401CBE90B6005B23D5 /* EETitleViewController.m */; };
+		05B59A431CBE90E1005B23D5 /* EETitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B59A421CBE90E1005B23D5 /* EETitleViewController.xib */; };
+		05B59A491CBE91C4005B23D5 /* UIViewController+Initializing.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A481CBE91C4005B23D5 /* UIViewController+Initializing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,11 @@
 		05B59A2D1CBE8FD5005B23D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05B59A351CBE9018005B23D5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		05B59A361CBE9018005B23D5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		05B59A3F1CBE90B6005B23D5 /* EETitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EETitleViewController.h; sourceTree = "<group>"; };
+		05B59A401CBE90B6005B23D5 /* EETitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EETitleViewController.m; sourceTree = "<group>"; };
+		05B59A421CBE90E1005B23D5 /* EETitleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EETitleViewController.xib; sourceTree = "<group>"; };
+		05B59A471CBE91C4005B23D5 /* UIViewController+Initializing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Initializing.h"; sourceTree = "<group>"; };
+		05B59A481CBE91C4005B23D5 /* UIViewController+Initializing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Initializing.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				05B59A341CBE9018005B23D5 /* AppDelegate */,
+				05B59A381CBE9044005B23D5 /* Representation */,
 				05B59A221CBE8FD5005B23D5 /* ViewController.h */,
 				05B59A231CBE8FD5005B23D5 /* ViewController.m */,
 				05B59A251CBE8FD5005B23D5 /* Main.storyboard */,
@@ -86,6 +95,60 @@
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
+		};
+		05B59A381CBE9044005B23D5 /* Representation */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A3D1CBE90B6005B23D5 /* ViewControllers */,
+			);
+			name = Representation;
+			sourceTree = "<group>";
+		};
+		05B59A3D1CBE90B6005B23D5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A451CBE918F005B23D5 /* Categories */,
+				05B59A441CBE9189005B23D5 /* Custom */,
+				05B59A3E1CBE90B6005B23D5 /* EETitleViewController */,
+			);
+			name = ViewControllers;
+			path = Representation/ViewControllers;
+			sourceTree = "<group>";
+		};
+		05B59A3E1CBE90B6005B23D5 /* EETitleViewController */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A3F1CBE90B6005B23D5 /* EETitleViewController.h */,
+				05B59A401CBE90B6005B23D5 /* EETitleViewController.m */,
+				05B59A421CBE90E1005B23D5 /* EETitleViewController.xib */,
+			);
+			path = EETitleViewController;
+			sourceTree = "<group>";
+		};
+		05B59A441CBE9189005B23D5 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Custom;
+			sourceTree = "<group>";
+		};
+		05B59A451CBE918F005B23D5 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A461CBE91C4005B23D5 /* UIViewController+Initializing */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		05B59A461CBE91C4005B23D5 /* UIViewController+Initializing */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A471CBE91C4005B23D5 /* UIViewController+Initializing.h */,
+				05B59A481CBE91C4005B23D5 /* UIViewController+Initializing.m */,
+			);
+			name = "UIViewController+Initializing";
+			path = "menu-controller-example/Representation/Categories/UIViewController+Initializing";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -118,6 +181,7 @@
 				TargetAttributes = {
 					05B59A181CBE8FD5005B23D5 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = BZ7FRR6Z9T;
 					};
 				};
 			};
@@ -145,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05B59A2C1CBE8FD5005B23D5 /* LaunchScreen.storyboard in Resources */,
+				05B59A431CBE90E1005B23D5 /* EETitleViewController.xib in Resources */,
 				05B59A291CBE8FD5005B23D5 /* Assets.xcassets in Resources */,
 				05B59A271CBE8FD5005B23D5 /* Main.storyboard in Resources */,
 			);
@@ -157,7 +222,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B59A491CBE91C4005B23D5 /* UIViewController+Initializing.m in Sources */,
 				05B59A241CBE8FD5005B23D5 /* ViewController.m in Sources */,
+				05B59A411CBE90B6005B23D5 /* EETitleViewController.m in Sources */,
 				05B59A1E1CBE8FD5005B23D5 /* main.m in Sources */,
 				05B59A371CBE9018005B23D5 /* AppDelegate.m in Sources */,
 			);
@@ -271,10 +338,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "menu-controller-example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.indeema.menu-controller-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6968b037-5b8e-4eef-a46f-c60840f82840";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -282,10 +352,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "menu-controller-example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.indeema.menu-controller-example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6968b037-5b8e-4eef-a46f-c60840f82840";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
