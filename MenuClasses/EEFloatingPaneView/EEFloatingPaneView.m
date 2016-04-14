@@ -115,19 +115,18 @@
     CGPoint lStartCenter = CGPointMake(SIDE_BAR_WIDTH / 2.0f, SIDE_BAR_WIDTH / 2.0f);
     
     if (_side == EEMenuFloatingMenuSideRight) {
-        lRadius = -lRadius;
+        lRadius = -lRadius+2;
     }
     
     for (EEFloatingPaneTabButton *tabButton in _tabButtonsArr) {
         [tabButton updateBackgroundTo:side];
         
         CGFloat lAngle = tabButton.angle;
-        
-        if (side == EEMenuFloatingMenuSideRight) {
+        if (_side == EEMenuFloatingMenuSideRight) {
             lAngle = -lAngle;
         }
         
-        lCenter = CGPointMake(cosf(lAngle) * lRadius + lStartCenter.x, sinf(lAngle) * lRadius + lStartCenter.y);
+        lCenter = findPointOnCirle(lStartCenter, lAngle, lRadius);
         
         CGAffineTransform lTransform = CGAffineTransformMakeRotation(lAngle);
         

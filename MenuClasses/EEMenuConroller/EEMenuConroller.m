@@ -593,6 +593,8 @@
 
 - (void)EEMenuPanelSelectedTab:(NSUInteger)tabIndex {
     if (_isFloatingMode) {
+        [self setFloatingSidePanelOpen:NO];
+        
         [self.bottomPanel setSelectedTab:tabIndex animated:NO];
     } else {
         [self.floatingPanel setSelectedTab:tabIndex animated:NO];

@@ -88,8 +88,8 @@
     lMenuTab5.selectedIcon = [UIImage imageNamed:@"third_tab_selected"];
     lMenuTab5.viewController = [EEThirdViewController newWithNimbAsClassName];
     
-    [[EEMenuConroller shareInstance] loadTabs:@[lMenuTab1, lMenuTab2, lMenuTab3, lMenuTab4, lMenuTab5]];
-//    [[EEMenuConroller shareInstance] loadTabs:@[lMenuTab1]];
+//    [[EEMenuConroller shareInstance] loadTabs:@[lMenuTab1, lMenuTab2, lMenuTab3, lMenuTab4, lMenuTab5]];
+    [[EEMenuConroller shareInstance] loadTabs:@[lMenuTab1, lMenuTab2, lMenuTab3]];
     
     [[EEMenuConroller shareInstance] setMenuVisible:YES animated:NO];
 }
