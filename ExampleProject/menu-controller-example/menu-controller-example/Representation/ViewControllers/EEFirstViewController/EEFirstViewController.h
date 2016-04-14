@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+Initializing.h"
 
-@interface EETitleViewController : UIViewController
+@interface EEFirstViewController : UIViewController
+
 
 @end

@@ -8,32 +8,66 @@
 
 /* Begin PBXBuildFile section */
 		05B59A1E1CBE8FD5005B23D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A1D1CBE8FD5005B23D5 /* main.m */; };
-		05B59A241CBE8FD5005B23D5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A231CBE8FD5005B23D5 /* ViewController.m */; };
-		05B59A271CBE8FD5005B23D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B59A251CBE8FD5005B23D5 /* Main.storyboard */; };
 		05B59A291CBE8FD5005B23D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05B59A281CBE8FD5005B23D5 /* Assets.xcassets */; };
 		05B59A2C1CBE8FD5005B23D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B59A2A1CBE8FD5005B23D5 /* LaunchScreen.storyboard */; };
 		05B59A371CBE9018005B23D5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A361CBE9018005B23D5 /* AppDelegate.m */; };
-		05B59A411CBE90B6005B23D5 /* EETitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A401CBE90B6005B23D5 /* EETitleViewController.m */; };
-		05B59A431CBE90E1005B23D5 /* EETitleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B59A421CBE90E1005B23D5 /* EETitleViewController.xib */; };
 		05B59A491CBE91C4005B23D5 /* UIViewController+Initializing.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A481CBE91C4005B23D5 /* UIViewController+Initializing.m */; };
+		05B59A6F1CBE9B99005B23D5 /* EEContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A6E1CBE9B99005B23D5 /* EEContentVC.m */; };
+		05B59A731CBE9DF5005B23D5 /* EEMenuConroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A721CBE9DF5005B23D5 /* EEMenuConroller.m */; };
+		05B59A781CBEA160005B23D5 /* EEBottomPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A771CBEA160005B23D5 /* EEBottomPanelView.m */; };
+		05B59A7D1CBEA47B005B23D5 /* EEBottomPanelTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A7C1CBEA47B005B23D5 /* EEBottomPanelTabButton.m */; };
+		05B59A811CBEAB73005B23D5 /* EEMenuTab.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A801CBEAB73005B23D5 /* EEMenuTab.m */; };
+		05B59A851CBEB36A005B23D5 /* EEFloatingButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A841CBEB36A005B23D5 /* EEFloatingButton.m */; };
+		05B59A891CBEB5E3005B23D5 /* EEFloatingPaneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A881CBEB5E3005B23D5 /* EEFloatingPaneView.m */; };
+		05B59A8D1CBEB9F0005B23D5 /* EEFloatingPaneTabButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59A8C1CBEB9F0005B23D5 /* EEFloatingPaneTabButton.m */; };
+		05B59ABD1CBFDE78005B23D5 /* EESecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59ABC1CBFDE78005B23D5 /* EESecondViewController.m */; };
+		05B59ABF1CBFDEBF005B23D5 /* EESecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B59ABE1CBFDEBF005B23D5 /* EESecondViewController.xib */; };
+		05B59AC41CBFDEC4005B23D5 /* EEFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59AC21CBFDEC4005B23D5 /* EEFirstViewController.m */; };
+		05B59AC51CBFDEC4005B23D5 /* EEFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B59AC31CBFDEC4005B23D5 /* EEFirstViewController.xib */; };
+		05B59ACA1CBFDF63005B23D5 /* EEThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59AC81CBFDF63005B23D5 /* EEThirdViewController.m */; };
+		05B59ACB1CBFDF63005B23D5 /* EEThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B59AC91CBFDF63005B23D5 /* EEThirdViewController.xib */; };
+		05B59ACF1CBFFFFA005B23D5 /* EESegmentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59ACE1CBFFFFA005B23D5 /* EESegmentLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		05B59A191CBE8FD5005B23D5 /* menu-controller-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "menu-controller-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B59A1D1CBE8FD5005B23D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		05B59A221CBE8FD5005B23D5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		05B59A231CBE8FD5005B23D5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		05B59A261CBE8FD5005B23D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05B59A281CBE8FD5005B23D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05B59A2B1CBE8FD5005B23D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05B59A2D1CBE8FD5005B23D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05B59A351CBE9018005B23D5 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		05B59A361CBE9018005B23D5 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		05B59A3F1CBE90B6005B23D5 /* EETitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EETitleViewController.h; sourceTree = "<group>"; };
-		05B59A401CBE90B6005B23D5 /* EETitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EETitleViewController.m; sourceTree = "<group>"; };
-		05B59A421CBE90E1005B23D5 /* EETitleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EETitleViewController.xib; sourceTree = "<group>"; };
 		05B59A471CBE91C4005B23D5 /* UIViewController+Initializing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Initializing.h"; sourceTree = "<group>"; };
 		05B59A481CBE91C4005B23D5 /* UIViewController+Initializing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Initializing.m"; sourceTree = "<group>"; };
+		05B59A6D1CBE9B99005B23D5 /* EEContentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEContentVC.h; sourceTree = "<group>"; };
+		05B59A6E1CBE9B99005B23D5 /* EEContentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEContentVC.m; sourceTree = "<group>"; };
+		05B59A711CBE9DF5005B23D5 /* EEMenuConroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEMenuConroller.h; path = EEMenuConroller/EEMenuConroller.h; sourceTree = "<group>"; };
+		05B59A721CBE9DF5005B23D5 /* EEMenuConroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEMenuConroller.m; path = EEMenuConroller/EEMenuConroller.m; sourceTree = "<group>"; };
+		05B59A741CBE9EB4005B23D5 /* EEMenuControllerDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EEMenuControllerDefines.h; sourceTree = "<group>"; };
+		05B59A761CBEA160005B23D5 /* EEBottomPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEBottomPanelView.h; path = EEBottomPanelView/EEBottomPanelView.h; sourceTree = "<group>"; };
+		05B59A771CBEA160005B23D5 /* EEBottomPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEBottomPanelView.m; path = EEBottomPanelView/EEBottomPanelView.m; sourceTree = "<group>"; };
+		05B59A791CBEA1F0005B23D5 /* EEMenuPanelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEMenuPanelDelegate.h; sourceTree = "<group>"; };
+		05B59A7B1CBEA47B005B23D5 /* EEBottomPanelTabButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEBottomPanelTabButton.h; path = EEBottomPanelView/EEBottomPanelTabButton/EEBottomPanelTabButton.h; sourceTree = "<group>"; };
+		05B59A7C1CBEA47B005B23D5 /* EEBottomPanelTabButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEBottomPanelTabButton.m; path = EEBottomPanelView/EEBottomPanelTabButton/EEBottomPanelTabButton.m; sourceTree = "<group>"; };
+		05B59A7F1CBEAB73005B23D5 /* EEMenuTab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEMenuTab.h; path = EEMenuTab/EEMenuTab.h; sourceTree = "<group>"; };
+		05B59A801CBEAB73005B23D5 /* EEMenuTab.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEMenuTab.m; path = EEMenuTab/EEMenuTab.m; sourceTree = "<group>"; };
+		05B59A831CBEB36A005B23D5 /* EEFloatingButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEFloatingButton.h; path = EEFloatingButton/EEFloatingButton.h; sourceTree = "<group>"; };
+		05B59A841CBEB36A005B23D5 /* EEFloatingButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEFloatingButton.m; path = EEFloatingButton/EEFloatingButton.m; sourceTree = "<group>"; };
+		05B59A871CBEB5E3005B23D5 /* EEFloatingPaneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEFloatingPaneView.h; path = EEFloatingPaneView/EEFloatingPaneView.h; sourceTree = "<group>"; };
+		05B59A881CBEB5E3005B23D5 /* EEFloatingPaneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEFloatingPaneView.m; path = EEFloatingPaneView/EEFloatingPaneView.m; sourceTree = "<group>"; };
+		05B59A8B1CBEB9F0005B23D5 /* EEFloatingPaneTabButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEFloatingPaneTabButton.h; path = EEFloatingPaneView/EEFloatingPaneTabButton/EEFloatingPaneTabButton.h; sourceTree = "<group>"; };
+		05B59A8C1CBEB9F0005B23D5 /* EEFloatingPaneTabButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEFloatingPaneTabButton.m; path = EEFloatingPaneView/EEFloatingPaneTabButton/EEFloatingPaneTabButton.m; sourceTree = "<group>"; };
+		05B59ABB1CBFDE78005B23D5 /* EESecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EESecondViewController.h; path = EESecondViewController/EESecondViewController.h; sourceTree = "<group>"; };
+		05B59ABC1CBFDE78005B23D5 /* EESecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EESecondViewController.m; path = EESecondViewController/EESecondViewController.m; sourceTree = "<group>"; };
+		05B59ABE1CBFDEBF005B23D5 /* EESecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EESecondViewController.xib; path = EESecondViewController/EESecondViewController.xib; sourceTree = "<group>"; };
+		05B59AC11CBFDEC4005B23D5 /* EEFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEFirstViewController.h; sourceTree = "<group>"; };
+		05B59AC21CBFDEC4005B23D5 /* EEFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEFirstViewController.m; sourceTree = "<group>"; };
+		05B59AC31CBFDEC4005B23D5 /* EEFirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EEFirstViewController.xib; sourceTree = "<group>"; };
+		05B59AC71CBFDF63005B23D5 /* EEThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEThirdViewController.h; path = EEThirdViewController/EEThirdViewController.h; sourceTree = "<group>"; };
+		05B59AC81CBFDF63005B23D5 /* EEThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEThirdViewController.m; path = EEThirdViewController/EEThirdViewController.m; sourceTree = "<group>"; };
+		05B59AC91CBFDF63005B23D5 /* EEThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EEThirdViewController.xib; path = EEThirdViewController/EEThirdViewController.xib; sourceTree = "<group>"; };
+		05B59ACD1CBFFFFA005B23D5 /* EESegmentLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EESegmentLayer.h; path = EEFloatingPaneView/EESegmentLayer/EESegmentLayer.h; sourceTree = "<group>"; };
+		05B59ACE1CBFFFFA005B23D5 /* EESegmentLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EESegmentLayer.m; path = EEFloatingPaneView/EESegmentLayer/EESegmentLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				05B59A341CBE9018005B23D5 /* AppDelegate */,
+				05B59A681CBE9B52005B23D5 /* MenuClasses */,
 				05B59A381CBE9044005B23D5 /* Representation */,
-				05B59A221CBE8FD5005B23D5 /* ViewController.h */,
-				05B59A231CBE8FD5005B23D5 /* ViewController.m */,
-				05B59A251CBE8FD5005B23D5 /* Main.storyboard */,
 				05B59A281CBE8FD5005B23D5 /* Assets.xcassets */,
 				05B59A2A1CBE8FD5005B23D5 /* LaunchScreen.storyboard */,
 				05B59A2D1CBE8FD5005B23D5 /* Info.plist */,
@@ -99,6 +131,8 @@
 		05B59A381CBE9044005B23D5 /* Representation */ = {
 			isa = PBXGroup;
 			children = (
+				05B59A451CBE918F005B23D5 /* Categories */,
+				05B59A441CBE9189005B23D5 /* Custom */,
 				05B59A3D1CBE90B6005B23D5 /* ViewControllers */,
 			);
 			name = Representation;
@@ -107,22 +141,12 @@
 		05B59A3D1CBE90B6005B23D5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				05B59A451CBE918F005B23D5 /* Categories */,
-				05B59A441CBE9189005B23D5 /* Custom */,
-				05B59A3E1CBE90B6005B23D5 /* EETitleViewController */,
+				05B59AC01CBFDEC4005B23D5 /* EEFirstViewController */,
+				05B59ABA1CBFDE4C005B23D5 /* EESecondViewController */,
+				05B59AC61CBFDF48005B23D5 /* EEThirdViewController */,
 			);
 			name = ViewControllers;
 			path = Representation/ViewControllers;
-			sourceTree = "<group>";
-		};
-		05B59A3E1CBE90B6005B23D5 /* EETitleViewController */ = {
-			isa = PBXGroup;
-			children = (
-				05B59A3F1CBE90B6005B23D5 /* EETitleViewController.h */,
-				05B59A401CBE90B6005B23D5 /* EETitleViewController.m */,
-				05B59A421CBE90E1005B23D5 /* EETitleViewController.xib */,
-			);
-			path = EETitleViewController;
 			sourceTree = "<group>";
 		};
 		05B59A441CBE9189005B23D5 /* Custom */ = {
@@ -130,6 +154,7 @@
 			children = (
 			);
 			name = Custom;
+			path = Representation/ViewControllers;
 			sourceTree = "<group>";
 		};
 		05B59A451CBE918F005B23D5 /* Categories */ = {
@@ -138,6 +163,7 @@
 				05B59A461CBE91C4005B23D5 /* UIViewController+Initializing */,
 			);
 			name = Categories;
+			path = Representation/ViewControllers;
 			sourceTree = "<group>";
 		};
 		05B59A461CBE91C4005B23D5 /* UIViewController+Initializing */ = {
@@ -149,6 +175,136 @@
 			name = "UIViewController+Initializing";
 			path = "menu-controller-example/Representation/Categories/UIViewController+Initializing";
 			sourceTree = SOURCE_ROOT;
+		};
+		05B59A681CBE9B52005B23D5 /* MenuClasses */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A741CBE9EB4005B23D5 /* EEMenuControllerDefines.h */,
+				05B59A791CBEA1F0005B23D5 /* EEMenuPanelDelegate.h */,
+				05B59A7E1CBEAB4E005B23D5 /* EEMenuTab */,
+				05B59A821CBEB2DF005B23D5 /* EEFloatingButton */,
+				05B59A861CBEB5C5005B23D5 /* EEFloatingPaneView */,
+				05B59A751CBEA14D005B23D5 /* EEBottomPanelView */,
+				05B59A6C1CBE9B99005B23D5 /* EEContentVC */,
+				05B59A701CBE9DD7005B23D5 /* EEMenuConroller */,
+			);
+			name = MenuClasses;
+			path = ../../../MenuClasses;
+			sourceTree = "<group>";
+		};
+		05B59A6C1CBE9B99005B23D5 /* EEContentVC */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A6D1CBE9B99005B23D5 /* EEContentVC.h */,
+				05B59A6E1CBE9B99005B23D5 /* EEContentVC.m */,
+			);
+			path = EEContentVC;
+			sourceTree = "<group>";
+		};
+		05B59A701CBE9DD7005B23D5 /* EEMenuConroller */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A711CBE9DF5005B23D5 /* EEMenuConroller.h */,
+				05B59A721CBE9DF5005B23D5 /* EEMenuConroller.m */,
+			);
+			name = EEMenuConroller;
+			sourceTree = "<group>";
+		};
+		05B59A751CBEA14D005B23D5 /* EEBottomPanelView */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A7A1CBEA446005B23D5 /* EEBottomPanelTabButton */,
+				05B59A761CBEA160005B23D5 /* EEBottomPanelView.h */,
+				05B59A771CBEA160005B23D5 /* EEBottomPanelView.m */,
+			);
+			name = EEBottomPanelView;
+			sourceTree = "<group>";
+		};
+		05B59A7A1CBEA446005B23D5 /* EEBottomPanelTabButton */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A7B1CBEA47B005B23D5 /* EEBottomPanelTabButton.h */,
+				05B59A7C1CBEA47B005B23D5 /* EEBottomPanelTabButton.m */,
+			);
+			name = EEBottomPanelTabButton;
+			sourceTree = "<group>";
+		};
+		05B59A7E1CBEAB4E005B23D5 /* EEMenuTab */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A7F1CBEAB73005B23D5 /* EEMenuTab.h */,
+				05B59A801CBEAB73005B23D5 /* EEMenuTab.m */,
+			);
+			name = EEMenuTab;
+			sourceTree = "<group>";
+		};
+		05B59A821CBEB2DF005B23D5 /* EEFloatingButton */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A831CBEB36A005B23D5 /* EEFloatingButton.h */,
+				05B59A841CBEB36A005B23D5 /* EEFloatingButton.m */,
+			);
+			name = EEFloatingButton;
+			sourceTree = "<group>";
+		};
+		05B59A861CBEB5C5005B23D5 /* EEFloatingPaneView */ = {
+			isa = PBXGroup;
+			children = (
+				05B59ACC1CBFFFDB005B23D5 /* EESegmentLayer */,
+				05B59A8A1CBEB9D5005B23D5 /* EEFloatingPaneTabButton */,
+				05B59A871CBEB5E3005B23D5 /* EEFloatingPaneView.h */,
+				05B59A881CBEB5E3005B23D5 /* EEFloatingPaneView.m */,
+			);
+			name = EEFloatingPaneView;
+			sourceTree = "<group>";
+		};
+		05B59A8A1CBEB9D5005B23D5 /* EEFloatingPaneTabButton */ = {
+			isa = PBXGroup;
+			children = (
+				05B59A8B1CBEB9F0005B23D5 /* EEFloatingPaneTabButton.h */,
+				05B59A8C1CBEB9F0005B23D5 /* EEFloatingPaneTabButton.m */,
+			);
+			name = EEFloatingPaneTabButton;
+			sourceTree = "<group>";
+		};
+		05B59ABA1CBFDE4C005B23D5 /* EESecondViewController */ = {
+			isa = PBXGroup;
+			children = (
+				05B59ABB1CBFDE78005B23D5 /* EESecondViewController.h */,
+				05B59ABC1CBFDE78005B23D5 /* EESecondViewController.m */,
+				05B59ABE1CBFDEBF005B23D5 /* EESecondViewController.xib */,
+			);
+			name = EESecondViewController;
+			sourceTree = "<group>";
+		};
+		05B59AC01CBFDEC4005B23D5 /* EEFirstViewController */ = {
+			isa = PBXGroup;
+			children = (
+				05B59AC11CBFDEC4005B23D5 /* EEFirstViewController.h */,
+				05B59AC21CBFDEC4005B23D5 /* EEFirstViewController.m */,
+				05B59AC31CBFDEC4005B23D5 /* EEFirstViewController.xib */,
+			);
+			path = EEFirstViewController;
+			sourceTree = "<group>";
+		};
+		05B59AC61CBFDF48005B23D5 /* EEThirdViewController */ = {
+			isa = PBXGroup;
+			children = (
+				05B59AC71CBFDF63005B23D5 /* EEThirdViewController.h */,
+				05B59AC81CBFDF63005B23D5 /* EEThirdViewController.m */,
+				05B59AC91CBFDF63005B23D5 /* EEThirdViewController.xib */,
+			);
+			name = EEThirdViewController;
+			sourceTree = "<group>";
+		};
+		05B59ACC1CBFFFDB005B23D5 /* EESegmentLayer */ = {
+			isa = PBXGroup;
+			children = (
+				05B59ACD1CBFFFFA005B23D5 /* EESegmentLayer.h */,
+				05B59ACE1CBFFFFA005B23D5 /* EESegmentLayer.m */,
+			);
+			name = EESegmentLayer;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -208,10 +364,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B59ABF1CBFDEBF005B23D5 /* EESecondViewController.xib in Resources */,
+				05B59ACB1CBFDF63005B23D5 /* EEThirdViewController.xib in Resources */,
+				05B59AC51CBFDEC4005B23D5 /* EEFirstViewController.xib in Resources */,
 				05B59A2C1CBE8FD5005B23D5 /* LaunchScreen.storyboard in Resources */,
-				05B59A431CBE90E1005B23D5 /* EETitleViewController.xib in Resources */,
 				05B59A291CBE8FD5005B23D5 /* Assets.xcassets in Resources */,
-				05B59A271CBE8FD5005B23D5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,25 +379,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B59A891CBEB5E3005B23D5 /* EEFloatingPaneView.m in Sources */,
+				05B59AC41CBFDEC4005B23D5 /* EEFirstViewController.m in Sources */,
+				05B59ACF1CBFFFFA005B23D5 /* EESegmentLayer.m in Sources */,
+				05B59A8D1CBEB9F0005B23D5 /* EEFloatingPaneTabButton.m in Sources */,
 				05B59A491CBE91C4005B23D5 /* UIViewController+Initializing.m in Sources */,
-				05B59A241CBE8FD5005B23D5 /* ViewController.m in Sources */,
-				05B59A411CBE90B6005B23D5 /* EETitleViewController.m in Sources */,
+				05B59A811CBEAB73005B23D5 /* EEMenuTab.m in Sources */,
+				05B59A6F1CBE9B99005B23D5 /* EEContentVC.m in Sources */,
+				05B59ABD1CBFDE78005B23D5 /* EESecondViewController.m in Sources */,
 				05B59A1E1CBE8FD5005B23D5 /* main.m in Sources */,
+				05B59ACA1CBFDF63005B23D5 /* EEThirdViewController.m in Sources */,
 				05B59A371CBE9018005B23D5 /* AppDelegate.m in Sources */,
+				05B59A7D1CBEA47B005B23D5 /* EEBottomPanelTabButton.m in Sources */,
+				05B59A781CBEA160005B23D5 /* EEBottomPanelView.m in Sources */,
+				05B59A731CBE9DF5005B23D5 /* EEMenuConroller.m in Sources */,
+				05B59A851CBEB36A005B23D5 /* EEFloatingButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		05B59A251CBE8FD5005B23D5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05B59A261CBE8FD5005B23D5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		05B59A2A1CBE8FD5005B23D5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

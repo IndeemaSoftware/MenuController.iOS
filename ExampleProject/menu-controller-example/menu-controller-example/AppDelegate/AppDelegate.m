@@ -8,7 +8,15 @@
 
 #import "AppDelegate.h"
 
+#import "EEFirstViewController.h"
+#import "EESecondViewController.h"
+#import "EEThirdViewController.h"
+
+#import "EEMenuConroller.h"
+
 @interface AppDelegate ()
+
+- (void)initializeTabs;
 
 @end
 
@@ -16,7 +24,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    // initialize window
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self.window setRootViewController:[EEMenuConroller shareInstance].contentViewController];
+    [self.window makeKeyAndVisible];
+    
+    [self initializeTabs];
+    
     return YES;
 }
 
@@ -40,6 +55,43 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)initializeTabs {
+    EEMenuTab *lMenuTab1 = [EEMenuTab new];
+    lMenuTab1.title = @"First tab";
+    lMenuTab1.icon = [UIImage imageNamed:@"first_tab"];
+    lMenuTab1.selectedIcon = [UIImage imageNamed:@"first_tab_selected"];
+    lMenuTab1.viewController = [EEFirstViewController newWithNimbAsClassName];
+    
+    EEMenuTab *lMenuTab2 = [EEMenuTab new];
+    lMenuTab2.title = @"Second tab";
+    lMenuTab2.icon = [UIImage imageNamed:@"second_tab"];
+    lMenuTab2.selectedIcon = [UIImage imageNamed:@"second_tab_selected"];
+    lMenuTab2.viewController = [EESecondViewController newWithNimbAsClassName];
+    
+    EEMenuTab *lMenuTab3 = [EEMenuTab new];
+    lMenuTab3.title = @"Third tab";
+    lMenuTab3.icon = [UIImage imageNamed:@"third_tab"];
+    lMenuTab3.selectedIcon = [UIImage imageNamed:@"third_tab_selected"];
+    lMenuTab3.viewController = [EEThirdViewController newWithNimbAsClassName];
+    
+    EEMenuTab *lMenuTab4 = [EEMenuTab new];
+    lMenuTab4.title = @"Third tab";
+    lMenuTab4.icon = [UIImage imageNamed:@"third_tab"];
+    lMenuTab4.selectedIcon = [UIImage imageNamed:@"third_tab_selected"];
+    lMenuTab4.viewController = [EEThirdViewController newWithNimbAsClassName];
+    
+    EEMenuTab *lMenuTab5 = [EEMenuTab new];
+    lMenuTab5.title = @"Third tab";
+    lMenuTab5.icon = [UIImage imageNamed:@"third_tab"];
+    lMenuTab5.selectedIcon = [UIImage imageNamed:@"third_tab_selected"];
+    lMenuTab5.viewController = [EEThirdViewController newWithNimbAsClassName];
+    
+    [[EEMenuConroller shareInstance] loadTabs:@[lMenuTab1, lMenuTab2, lMenuTab3, lMenuTab4, lMenuTab5]];
+//    [[EEMenuConroller shareInstance] loadTabs:@[lMenuTab1]];
+    
+    [[EEMenuConroller shareInstance] setMenuVisible:YES animated:NO];
 }
 
 @end
