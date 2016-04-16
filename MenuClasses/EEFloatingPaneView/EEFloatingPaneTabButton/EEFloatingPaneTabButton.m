@@ -12,7 +12,8 @@
 #define ICON_IMAGE_SIZE 14.0f
 
 @interface EEFloatingPaneTabButton() {
-    CAShapeLayer *_segmentLayer;
+    CAShapeLayer *_rightSegmentLayer;
+    CAShapeLayer *_leftSegmentLayer;
     UIImageView *_imageView;
     UILabel *_titleLabel;
     
@@ -20,7 +21,9 @@
 }
 
 - (void)updateHighlightedState;
-- (CAShapeLayer*)segmentLayer;
+- (CAShapeLayer*)rightSegmentLayer;
+- (CAShapeLayer*)leftSegmentLayer;
+
 - (UIImageView*)imageView;
 - (UILabel*)titleLabel;
 
@@ -51,15 +54,20 @@
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
-    return CGPathContainsPoint(self.segmentLayer.path, 0, point, YES);
+    CAShapeLayer *lLayer = self.leftSegmentLayer;
+    if (self.leftSegmentLayer.isHidden) {
+        lLayer = self.rightSegmentLayer;
+    }
+    return CGPathContainsPoint(lLayer.path, 0, point, YES);
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
-    [self.segmentLayer setFillColor:backgroundColor.CGColor];
+    [self.leftSegmentLayer setFillColor:backgroundColor.CGColor];
+    [self.rightSegmentLayer setFillColor:backgroundColor.CGColor];
 }
 
 - (UIColor *)backgroundColor {
-    return [UIColor colorWithCGColor:self.segmentLayer.fillColor];
+    return [UIColor colorWithCGColor:self.leftSegmentLayer.fillColor];
 }
 
 - (void)setTintColor:(UIColor *)tintColor {
@@ -88,17 +96,21 @@
 }
 
 - (void)updateBackgroundTo:(EEMenuFloatingMenuSide)side {
-    if (side == EEMenuFloatingMenuSideLeft) {
-        [self.segmentLayer setTransform:CATransform3DScale(CATransform3DMakeRotation(0, 0, 0, 0), 1, 1, 1)];
-    } else {
-        [self.segmentLayer setTransform:CATransform3DScale(CATransform3DMakeRotation(0, 0, 0, 0), -1, 1, 1)];
-    }
+    [self.leftSegmentLayer setHidden:(side == EEMenuFloatingMenuSideLeft)];
+    [self.rightSegmentLayer setHidden:!self.leftSegmentLayer.isHidden];
+    
+    [self.leftSegmentLayer removeAllAnimations];
+    [self.rightSegmentLayer removeAllAnimations];
 }
 
 - (void)drawBackgroundWithPath:(CGPathRef)path {
-    self.segmentLayer.path = path;
-    self.segmentLayer.frame = CGPathGetPathBoundingBox(path);
-    self.segmentLayer.bounds = CGPathGetPathBoundingBox(path);
+    self.rightSegmentLayer.path = path;
+    self.rightSegmentLayer.frame = CGPathGetPathBoundingBox(path);
+    self.rightSegmentLayer.bounds = CGPathGetPathBoundingBox(path);
+    
+    self.leftSegmentLayer.path = path;
+    self.leftSegmentLayer.frame = CGPathGetPathBoundingBox(path);
+    self.leftSegmentLayer.bounds = CGPathGetPathBoundingBox(path);
 }
 
 #pragma mark - Private methods
@@ -114,18 +126,27 @@
     [self.titleLabel setTextColor:[super tintColor]];
 }
 
-- (CAShapeLayer*)segmentLayer {
-    if (_segmentLayer == nil) {
-        _segmentLayer = [[CAShapeLayer alloc] init];
-        [_segmentLayer setFillColor:[UIColor whiteColor].CGColor];
-        [_segmentLayer setShadowColor:[UIColor colorWithWhite:0.0f alpha:0.3f].CGColor];
-        [_segmentLayer setShadowOpacity:1.0f];
-        [_segmentLayer setShadowRadius:1.0f];
-        [_segmentLayer setShadowOffset:CGSizeMake(0.0f, 0.0f)];
+- (CAShapeLayer*)rightSegmentLayer {
+    if (_rightSegmentLayer == nil) {
+        _rightSegmentLayer = [[CAShapeLayer alloc] init];
+        [_rightSegmentLayer setShadowColor:[UIColor colorWithWhite:0.0f alpha:0.3f].CGColor];
+        [_rightSegmentLayer setShadowOpacity:1.0f];
+        [_rightSegmentLayer setShadowRadius:1.0f];
+        [_rightSegmentLayer setShadowOffset:CGSizeMake(0.0f, 0.0f)];
         
-        [self.layer insertSublayer:_segmentLayer atIndex:0];
+        [self.layer insertSublayer:_rightSegmentLayer atIndex:0];
     }
-    return _segmentLayer;
+    return _rightSegmentLayer;
+}
+
+- (CAShapeLayer*)leftSegmentLayer {
+    if (_leftSegmentLayer == nil) {
+        _leftSegmentLayer = [[CAShapeLayer alloc] initWithLayer:self.rightSegmentLayer];
+        [_leftSegmentLayer setTransform:CATransform3DScale(CATransform3DMakeRotation(0, 0, 0, 0), -1, 1, 1)];
+        
+        [self.layer insertSublayer:_leftSegmentLayer atIndex:0];
+    }
+    return _leftSegmentLayer;
 }
 
 - (UIImageView*)imageView {

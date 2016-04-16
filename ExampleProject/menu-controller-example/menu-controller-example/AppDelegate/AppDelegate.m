@@ -38,6 +38,8 @@
     [EEMenuConroller.shareInstance setFloatingPanelTintColor:[UIColor lightGrayColor]];
     [EEMenuConroller.shareInstance setFloatingPanelActiveTintColor:[UIColor colorWithRed:147.0f/255.0f green:207.0f/255.0f blue:28.0f/255.0f alpha:1.0f]];
     
+    [EEMenuConroller.shareInstance setFloatingAreaInsets:UIEdgeInsetsMake(100.0f, 0.0f, 0.0f, 0.0f)];
+    
     [self initializeTabs];
     
     return YES;
@@ -81,17 +83,6 @@
     lMenuTab3.icon = [UIImage imageNamed:@"third_tab"];
     lMenuTab3.viewController = [EEThirdViewController newWithNimbAsClassName];
     
-    EEMenuTab *lMenuTab4 = [EEMenuTab new];
-    lMenuTab4.title = @"Third tab";
-    lMenuTab4.icon = [UIImage imageNamed:@"third_tab"];
-    lMenuTab4.viewController = [EEThirdViewController newWithNimbAsClassName];
-    
-    EEMenuTab *lMenuTab5 = [EEMenuTab new];
-    lMenuTab5.title = @"Third tab";
-    lMenuTab5.icon = [UIImage imageNamed:@"third_tab"];
-    lMenuTab5.viewController = [EEThirdViewController newWithNimbAsClassName];
-    
-//    [[EEMenuConroller shareInstance] loadTabs:@[lMenuTab1, lMenuTab2, lMenuTab3, lMenuTab4, lMenuTab5]];
     [[EEMenuConroller shareInstance] loadTabs:@[lMenuTab1, lMenuTab2, lMenuTab3]];
     
     [[EEMenuConroller shareInstance] setMenuVisible:YES animated:NO];

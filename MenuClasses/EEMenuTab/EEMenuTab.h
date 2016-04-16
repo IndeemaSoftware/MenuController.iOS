@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#import "EEMenuContentProtocol.h"
+
 @interface EEMenuTab : NSObject
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, strong) UIImage *icon;
-@property (nonatomic, strong) UIViewController *viewController;
+@property (nonatomic, strong) UIViewController <EEMenuContentProtocol> *viewController;
 
 @end

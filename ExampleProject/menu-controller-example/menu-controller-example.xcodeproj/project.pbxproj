@@ -30,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05326A6D1CC2837800FC3465 /* EEMenuContentProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEMenuContentProtocol.h; sourceTree = "<group>"; };
 		05B59A191CBE8FD5005B23D5 /* menu-controller-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "menu-controller-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B59A1D1CBE8FD5005B23D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		05B59A281CBE8FD5005B23D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -179,6 +180,7 @@
 		05B59A681CBE9B52005B23D5 /* MenuClasses */ = {
 			isa = PBXGroup;
 			children = (
+				05326A6D1CC2837800FC3465 /* EEMenuContentProtocol.h */,
 				05B59A741CBE9EB4005B23D5 /* EEMenuControllerDefines.h */,
 				05B59A791CBEA1F0005B23D5 /* EEMenuPanelDelegate.h */,
 				05B59A7E1CBEAB4E005B23D5 /* EEMenuTab */,
@@ -540,6 +542,7 @@
 				05B59A321CBE8FD5005B23D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

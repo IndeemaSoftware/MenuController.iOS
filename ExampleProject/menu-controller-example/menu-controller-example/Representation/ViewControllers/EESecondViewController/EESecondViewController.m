@@ -7,8 +7,9 @@
 //
 
 #import "EESecondViewController.h"
+#import "EEMenuContentProtocol.h"
 
-@interface EESecondViewController ()
+@interface EESecondViewController () <EEMenuContentProtocol>
 
 @end
 
@@ -26,6 +27,11 @@
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
+}
+
+#pragma mark - EEMenuContent protocol
+- (void)EEMenuContentBottomInsetChanged:(CGFloat)bottomInset animated:(BOOL)animated {
+    
 }
 
 @end

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+Initializing.h"
+#import "EEMenuContentProtocol.h"
 
-@interface EEThirdViewController : UIViewController
+@interface EEThirdViewController : UIViewController <EEMenuContentProtocol>
 
 @end

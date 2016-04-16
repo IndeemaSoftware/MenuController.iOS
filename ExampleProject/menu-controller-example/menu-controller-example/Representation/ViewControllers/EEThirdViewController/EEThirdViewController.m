@@ -8,7 +8,9 @@
 
 #import "EEThirdViewController.h"
 
-@interface EEThirdViewController ()
+@interface EEThirdViewController () {
+    IBOutlet UITextView *_textView;
+}
 
 @end
 
@@ -54,6 +56,21 @@
 
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
     return UIStatusBarAnimationSlide;
+}
+
+#pragma mark - EEMenuContent protocol
+- (void)EEMenuContentBottomInsetChanged:(CGFloat)bottomInset animated:(BOOL)animated {
+    if (self.isViewLoaded) {
+        if (animated) {
+            [UIView animateWithDuration:0.25f animations:^{
+                [_textView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, bottomInset, 0.0f)];
+                [_textView setScrollIndicatorInsets:UIEdgeInsetsMake(0.0f, 0.0f, bottomInset, 0.0f)];
+            }];
+        } else {
+            [_textView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, bottomInset, 0.0f)];
+            [_textView setScrollIndicatorInsets:UIEdgeInsetsMake(0.0f, 0.0f, bottomInset, 0.0f)];
+        }
+    }
 }
 
 @end

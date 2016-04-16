@@ -9,9 +9,13 @@
 #import "EEContentVC.h"
 
 @interface EEContentVC () {
+    UIView *_contentView;
     //transition
     UIViewController *_currentViewController;
 }
+
+- (UIView*)contentView;
+- (void)updateFloatingArea;
 
 @end
 
@@ -37,9 +41,15 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
+    [self.contentView setFrame:self.view.bounds];
+    
     if (_currentViewController != nil) {
         [_currentViewController.view setFrame:self.view.bounds];
     }
+    
+    [self updateFloatingArea];
+    
+    _bottomTabBarFrame = CGRectMake(0.0f, self.view.bounds.size.height - BOTTOM_PANEL_HEIGHT, self.view.bounds.size.width, BOTTOM_PANEL_HEIGHT);
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -65,6 +75,12 @@
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
     return _currentViewController.preferredInterfaceOrientationForPresentation;
 }
+
+- (void)setFloatingAreaInsets:(UIEdgeInsets)floatingAreaInsets {
+    _floatingAreaInsets = floatingAreaInsets;
+    [self updateFloatingArea];
+}
+
 
 - (void)showViewController:(UIViewController*)viewController transition:(EETransitionType)transitionType {
     if ([_currentViewController isEqual:viewController]) {
@@ -110,13 +126,13 @@
     [self addChildViewController:viewController];
     
     if (_currentViewController == nil) {
-        [self.view insertSubview:viewController.view atIndex:0];
+        [self.contentView  insertSubview:viewController.view atIndex:0];
     } else {
         [_currentViewController willMoveToParentViewController:nil];
         [_currentViewController removeFromParentViewController];
         [_currentViewController didMoveToParentViewController:nil];
         
-        [self.view insertSubview:viewController.view aboveSubview:_currentViewController.view];
+        [self.contentView insertSubview:viewController.view aboveSubview:_currentViewController.view];
     }
     
     [viewController didMoveToParentViewController:self];
@@ -146,5 +162,23 @@
     [_currentViewController removeFromParentViewController];
     [_currentViewController didMoveToParentViewController:nil];
     _currentViewController = nil;
+}
+
+#pragma mark - Private methods
+- (UIView*)contentView {
+    if (_contentView == nil) {
+        _contentView = [[UIView alloc] init];
+        [_contentView setBackgroundColor:self.view.backgroundColor];
+        [self.view insertSubview:_contentView atIndex:0];
+    }
+    return _contentView;
+}
+
+- (void)updateFloatingArea {
+    CGRect lBounds = self.view.bounds;
+    UIEdgeInsets lInsets = self.floatingAreaInsets;
+    
+    _floatingAreaBounds = CGRectMake(BOTTOM_PANEL_HEIGHT / 2.0 - 10.0f + lInsets.left, lInsets.top, lBounds.size.width - BOTTOM_PANEL_HEIGHT / 2.0 + 10.0f - lInsets.right, lBounds.size.height - BOTTOM_PANEL_HEIGHT / 2.0);
+    _floatingAreaCenter = CGPointMake(CGRectGetMidX(_floatingAreaBounds), CGRectGetMidY(_floatingAreaBounds));
 }
 @end

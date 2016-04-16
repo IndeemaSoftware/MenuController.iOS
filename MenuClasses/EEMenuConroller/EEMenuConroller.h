@@ -24,6 +24,8 @@
 @property (nonatomic, strong) UIColor *floatingPanelTintColor;
 @property (nonatomic, strong) UIColor *floatingPanelActiveTintColor;
 
+@property (nonatomic, assign) UIEdgeInsets floatingAreaInsets;
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - Navigation
 @property (nonatomic, readonly) NSUInteger selectedTabIndex;
 @property (nonatomic, readonly) EEMenuTab *selectedMenuTab;

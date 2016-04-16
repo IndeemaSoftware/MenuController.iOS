@@ -227,25 +227,6 @@
 }
 
 - (CGPathRef)buildPathForSegmentWithAngle:(CGFloat)segmentAngle {
-//    // find center
-//    CGPoint lCenter = CGPointMake(SIDE_BAR_ITEM_WIDTH / 2.0f, SIDE_BAR_WIDTH / 2.0f);
-//    
-//    // create Arc path
-//    CGMutablePathRef lArcPath = CGPathCreateMutable();
-//    
-//    CGFloat lRadius = SIDE_BAR_ITEM_WIDTH / 2.0f;
-//
-//    CGPoint lStartPoint = findPointOnCirle(lCenter, 0, lRadius);
-//    // move to start point
-//    CGPathMoveToPoint(lArcPath, NULL, lStartPoint.x, lStartPoint.y);
-//    // add external arc to the path
-//    CGPathAddArc(lArcPath, NULL, lCenter.x, lCenter.y, lRadius, 0.0f, 2 * M_PI, NO);
-//    
-//    // 4. Close path  --------------
-//    CGPathCloseSubpath(lArcPath);
-//    
-//    return lArcPath;
-    
     // find center
     CGPoint lCenter = CGPointMake(SIDE_BAR_ITEM_WIDTH - SIDE_BAR_WIDTH / 2.0f, SIDE_BAR_WIDTH / 2.0f);
     
@@ -281,19 +262,6 @@
     CGPathCloseSubpath(lArcPath);
     
     return lArcPath;
-    
-//    CGFloat lRadius = (SIDE_BAR_WIDTH - SIDE_BAR_ITEM_WIDTH) / 2.0f;
-//    CGFloat lHalfOfSegmentAngle = segmentAngle / 2.0f;
-//    CGPoint lCenter = CGPointMake(SIDE_BAR_ITEM_WIDTH - SIDE_BAR_WIDTH / 2.0f, SIDE_BAR_WIDTH / 2.0f);
-//    CGPoint lStartPoint = CGPointMake(cosf(-lHalfOfSegmentAngle) * lRadius + lCenter.x, sinf(-lHalfOfSegmentAngle) * lRadius + lCenter.y);
-//    
-//    CGMutablePathRef lArcPath = CGPathCreateMutable();
-//    CGPathMoveToPoint(lArcPath, NULL, lStartPoint.x, lStartPoint.y);
-//    CGPathAddArc(lArcPath, NULL, lCenter.x, lCenter.y, lRadius, -lHalfOfSegmentAngle, lHalfOfSegmentAngle, NO);
-//    CGPathRef lResultPath = CGPathCreateCopyByStrokingPath(lArcPath, NULL, SIDE_BAR_ITEM_WIDTH, kCGLineCapButt, kCGLineJoinMiter, 10);
-//    CGPathRelease(lArcPath);
-//    
-//    return lResultPath;
 }
 
 static inline  CGPoint findPointOnCirle(CGPoint center, CGFloat angle, CGFloat radius) {

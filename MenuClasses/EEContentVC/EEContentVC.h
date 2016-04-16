@@ -12,6 +12,12 @@
 
 @interface EEContentVC : UIViewController
 
+@property (nonatomic, assign) CGRect floatingAreaBounds;
+@property (nonatomic, assign) CGPoint floatingAreaCenter;
+@property (nonatomic, assign) CGRect bottomTabBarFrame;
+
+@property (nonatomic, assign) UIEdgeInsets floatingAreaInsets;
+
 //transition methods
 - (void)showViewController:(UIViewController*)viewController transition:(EETransitionType)transitionType;
 

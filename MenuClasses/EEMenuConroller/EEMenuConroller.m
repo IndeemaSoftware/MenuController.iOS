@@ -30,12 +30,9 @@
     UIView *_blockView;
     UIImageView *_magnetView;//is using to show for user where he/she can push floating menu
     
-    CGRect _floatingAreaBounds;
-    CGRect __bottomTabBarFrame;
-    
     CGSize _floatingTabBarVelocity;
     
-    CGPoint _floatingAreaCenter;
+    CGFloat _bottomInset;
     
     BOOL _isFloatingTabBarOpened;
     BOOL _needMoveAway;
@@ -67,6 +64,9 @@
 - (BOOL)canBecomeBottomTabBarWithLocation:(CGPoint)location;
 - (void)setFloatingSidePanelOpen:(BOOL)open;
 
+- (void)updateBottomInset:(CGFloat)bottomInset animated:(BOOL)animated;
+- (void)sendBottomInset:(CGFloat)bottomOffset to:(UIViewController <EEMenuContentProtocol> *)contentVC animated:(BOOL)animated;
+
 #pragma mark Gesture handlers
 - (void)longPressGestureHandler:(UILongPressGestureRecognizer*)longPressGesture;
 - (void)panGestureHandler:(UIPanGestureRecognizer*)panGesture;
@@ -90,12 +90,6 @@
     if (self) {
         _menuTabsArr = [NSMutableArray new];
         
-        CGRect lScreenBounds = [UIScreen mainScreen].bounds;
-        
-        _floatingAreaBounds = CGRectMake(0.0f, FLOATING_TOP_OFFSET, lScreenBounds.size.width, lScreenBounds.size.height - STATUS_BAR_HEIGHT);
-        __bottomTabBarFrame = CGRectMake(0.0f, lScreenBounds.size.height - BOTTOM_PANEL_HEIGHT, lScreenBounds.size.width, BOTTOM_PANEL_HEIGHT);
-        _floatingAreaCenter = CGPointMake(CGRectGetMidX(_floatingAreaBounds), CGRectGetMidY(_floatingAreaBounds));
-        
         _isFloatingMode = NO;
         _isFloatingTabBarOpened = NO;
         _needMoveAway = NO;
@@ -104,6 +98,8 @@
         [self.contentVC.view addSubview:self.bottomPanel];
         [self.contentVC.view addSubview:self.floatingPanel];
         [self.contentVC.view addSubview:self.floatingButton];
+        
+        [self.contentVC setFloatingAreaInsets:UIEdgeInsetsMake(FLOATING_TOP_OFFSET, 0.0f, 0.0f, 0.0f)];
     }
     return self;
 }
@@ -155,6 +151,14 @@
 
 - (UIColor *)floatingPanelActiveTintColor {
     return self.floatingPanel.itemsActiveTintColor;
+}
+
+- (void)setFloatingAreaInsets:(UIEdgeInsets)floatingAreaInsets {
+    [self.contentVC setFloatingAreaInsets:floatingAreaInsets];
+}
+
+- (UIEdgeInsets)floatingAreaInsets {
+    return self.contentVC.floatingAreaInsets;
 }
 
 #pragma mark Navigation
@@ -223,6 +227,10 @@
         [self.contentVC showViewController:lNewMenuTab.viewController transition:lTransitionType];
         
         _selectedTabIndex = tabIndex;
+        
+        if (!self.isFloatingMode) {
+            [self sendBottomInset:_bottomInset to:lNewMenuTab.viewController animated:NO];
+        }
     }
 }
 
@@ -254,7 +262,7 @@
 #pragma mark Menu Panels
 - (EEFloatingButton*)floatingButton {
     if (_floatingButton == nil) {
-        _floatingButton = [[EEFloatingButton alloc] initWithFrame:CGRectMake(-FLOATING_VIEW_SIZE, _floatingAreaCenter.y, FLOATING_VIEW_SIZE, FLOATING_VIEW_SIZE)];
+        _floatingButton = [[EEFloatingButton alloc] initWithFrame:CGRectMake(-FLOATING_VIEW_SIZE, self.contentVC.floatingAreaCenter.y, FLOATING_VIEW_SIZE, FLOATING_VIEW_SIZE)];
         [_floatingButton setSide:EEMenuFloatingMenuSideLeft];
         
         UIPanGestureRecognizer *lPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureHandler:)];
@@ -295,24 +303,24 @@
 }
 
 - (void)setFloatingMenuVisible:(BOOL)isVisible animated:(BOOL)animated {
-    CGPoint lNewCenter = CGPointMake(BOTTOM_PANEL_HEIGHT / 2.0, _floatingAreaCenter.y);
+    CGPoint lNewCenter = CGPointMake(BOTTOM_PANEL_HEIGHT / 2.0, self.contentVC.floatingAreaCenter.y);
     CGPoint lJumpCenter = lNewCenter;
     
     if (isVisible) {
-        if (self.floatingButton.center.x < _floatingAreaCenter.x) {
+        if (self.floatingButton.center.x < self.contentVC.floatingAreaCenter.x) {
             lNewCenter = CGPointMake(BOTTOM_PANEL_HEIGHT / 2.0, self.floatingButton.center.y);
         } else {
             lNewCenter = CGPointMake(self.contentVC.view.frame.size.width - BOTTOM_PANEL_HEIGHT / 2.0, self.floatingButton.center.y);
         }
     } else {
-        if (self.floatingButton.center.x < _floatingAreaCenter.x) {
+        if (self.floatingButton.center.x < self.contentVC.floatingAreaCenter.x) {
             lNewCenter = CGPointMake(-BOTTOM_PANEL_HEIGHT, self.floatingButton.center.y);
         } else {
             lNewCenter = CGPointMake(self.contentVC.view.frame.size.width + BOTTOM_PANEL_HEIGHT, self.floatingButton.center.y);
         }
     }
     
-    if (lNewCenter.x < _floatingAreaCenter.x) {
+    if (lNewCenter.x < self.contentVC.floatingAreaCenter.x) {
         lJumpCenter = CGPointMake(lNewCenter.x + MAGNET_JUMP_INSET, lNewCenter.y);
     } else {
         lJumpCenter = CGPointMake(lNewCenter.x - MAGNET_JUMP_INSET, lNewCenter.y);
@@ -365,8 +373,7 @@
     }
     
     //send to VC
-    // TODO: rewrite this part
-//    [self setToDelegateBottomInset:lBottomInsets];
+    [self updateBottomInset:lBottomInsets animated:animated];
 }
 
 - (void)setBlockViewVisible:(BOOL)visible {
@@ -446,8 +453,7 @@
             }];
             
             //send to VC
-            // TODO: rewrite this part
-//            [self setToDelegateBottomInset:0.0f];
+            [self updateBottomInset:0.0f animated:YES];
         } else {
             [self.bottomPanel setCenter:touchPoint];
             [self.floatingButton setCenter:touchPoint];
@@ -456,7 +462,7 @@
             
             [UIView animateWithDuration:0.2f delay:0.0f options:UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
                 [self.bottomPanel setTransform:CGAffineTransformIdentity];
-                [self.bottomPanel setCenter:CGPointMake(_floatingAreaCenter.x, self.contentVC.view.frame.size.height - BOTTOM_PANEL_HEIGHT / 2.0)];
+                [self.bottomPanel setCenter:CGPointMake(self.contentVC.view.frame.size.width / 2.0, self.contentVC.view.frame.size.height - BOTTOM_PANEL_HEIGHT / 2.0)];
                 
                 [self.floatingButton setTransform:CGAffineTransformMakeScale(0.5f, 0.5f)];
                 [self.floatingButton setAlpha:0.0];
@@ -465,8 +471,7 @@
             }];
             
             //send to VC
-            // TODO: rewrite this part
-//            [self setToDelegateBottomInset:BOTTOM_PANEL_HEIGHT];
+            [self updateBottomInset:BOTTOM_PANEL_HEIGHT animated:YES];
         }
         _isFloatingMode = isfloatingMode;
     }
@@ -489,8 +494,10 @@
 
 - (void)magnetFloatingTabBar {
     if (_isFloatingMode) {
-        CGPoint lMinLocation = CGPointMake(BOTTOM_PANEL_HEIGHT / 2.0 - 10.0f, FLOATING_TOP_OFFSET);
-        CGPoint lMaxLocation = CGPointMake(self.contentVC.view.frame.size.width - BOTTOM_PANEL_HEIGHT / 2.0 + 10.0f, self.contentVC.view.frame.size.height - BOTTOM_PANEL_HEIGHT / 2.0);
+        CGRect lFloatingArea = self.contentVC.floatingAreaBounds;
+        
+        CGPoint lMinLocation = CGPointMake(lFloatingArea.origin.x, lFloatingArea.origin.y);
+        CGPoint lMaxLocation = CGPointMake(lFloatingArea.size.width, lFloatingArea.size.height);
         
         CGPoint lCurrentCenter = self.floatingButton.center;
         CGPoint lNewCenter = lCurrentCenter;
@@ -518,7 +525,7 @@
         } else if (lSpeedX > MIN_TABBAR_SPEED) {
             lNewX = lMaxLocation.x;
         } else {
-            if (lEndX < _floatingAreaCenter.x) {
+            if (lEndX < self.contentVC.floatingAreaCenter.x) {
                 lNewX = lMinLocation.x;
             } else {
                 lNewX = lMaxLocation.x;
@@ -527,7 +534,7 @@
         
         lNewCenter = CGPointMake(lNewX, lNewY);
         
-        if (lNewCenter.x > _floatingAreaCenter.x) {
+        if (lNewCenter.x > self.contentVC.floatingAreaCenter.x) {
             lInsetCenter = CGPointMake(lNewCenter.x + MAGNET_JUMP_INSET, lNewCenter.y);
             self.floatingButton.side = EEMenuFloatingMenuSideRight;
         } else {
@@ -581,6 +588,19 @@
     }
 }
 
+- (void)updateBottomInset:(CGFloat)bottomInset animated:(BOOL)animated {
+    _bottomInset = bottomInset;
+    if (self.selectedMenuTab) {
+        [self sendBottomInset:bottomInset to:self.selectedMenuTab.viewController animated:animated];
+    }
+}
+
+- (void)sendBottomInset:(CGFloat)bottomInset to:(UIViewController <EEMenuContentProtocol> *)contentVC animated:(BOOL)animated {
+    if ([contentVC conformsToProtocol:@protocol(EEMenuContentProtocol)]) {
+        [contentVC EEMenuContentBottomInsetChanged:bottomInset animated:animated];
+    }
+}
+
 #pragma mark - Gesture handlers
 - (void)longPressGestureHandler:(UILongPressGestureRecognizer*)longPressGesture {
     CGPoint lLocation = [longPressGesture locationInView:self.contentVC.view];
@@ -589,7 +609,7 @@
         _needMoveAway = YES;
     } else if (longPressGesture.state == UIGestureRecognizerStateChanged) {
         if (_needMoveAway) {
-            if (!CGRectContainsPoint(__bottomTabBarFrame, lLocation)) {
+            if (!CGRectContainsPoint(self.contentVC.bottomTabBarFrame, lLocation)) {
                 _needMoveAway = NO;
             }
         }

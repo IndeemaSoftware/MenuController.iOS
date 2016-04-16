@@ -29,4 +29,9 @@
     return UIStatusBarStyleDefault;
 }
 
+#pragma mark - EEMenuContent protocol
+- (void)EEMenuContentBottomInsetChanged:(CGFloat)bottomInset animated:(BOOL)animated {
+    
+}
+
 @end

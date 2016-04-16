@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+Initializing.h"
+#import "EEMenuContentProtocol.h"
 
-@interface EEFirstViewController : UIViewController
+@interface EEFirstViewController : UIViewController <EEMenuContentProtocol>
 
 
 @end
