@@ -13,6 +13,9 @@
 @interface EEBottomPanelView : UIView
 
 @property (nonatomic, assign, getter=isShadowHidden) BOOL shadowHidden;
+@property (nonatomic, strong) UIColor *itemsTintColor;
+@property (nonatomic, strong) UIColor *itemsActiveTintColor;
+
 @property (nonatomic, weak) id <EEMenuPanelDelegate> delegate;
 
 - (void)reloadTabs;

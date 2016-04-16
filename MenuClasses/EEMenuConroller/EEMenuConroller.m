@@ -108,7 +108,56 @@
     return self;
 }
 
-#pragma mark Properties
+#pragma mark Appearance
+- (void)setBottomPanelColor:(UIColor *)bottomPanelColor {
+    [self.bottomPanel setBackgroundColor:bottomPanelColor];
+}
+
+- (UIColor *)bottomPanelColor {
+    return self.bottomPanel.backgroundColor;
+}
+
+- (void)setBottomPanelTintColor:(UIColor *)bottomPanelTintColor {
+    [self.bottomPanel setItemsTintColor:bottomPanelTintColor];
+}
+
+- (UIColor *)bottomPanelTintColor {
+    return self.bottomPanel.itemsTintColor;
+}
+
+- (void)setBottomPanelActiveTintColor:(UIColor *)bottomPanelActiveTintColor {
+    [self.bottomPanel setItemsActiveTintColor:bottomPanelActiveTintColor];
+}
+
+- (UIColor *)bottomPanelActiveTintColor {
+    return self.bottomPanel.itemsTintColor;
+}
+
+- (void)setFloatingPanelColor:(UIColor *)floatingPanelColor {
+    [self.floatingPanel setBackgroundColor:floatingPanelColor];
+}
+
+- (UIColor *)floatingPanelColor{
+    return self.floatingPanel.backgroundColor;
+}
+
+- (void)setFloatingPanelTintColor:(UIColor *)floatingPanelTintColor {
+    [self.floatingPanel setItemsTintColor:floatingPanelTintColor];
+}
+
+- (UIColor *)floatingPanelTintColor {
+    return self.floatingPanel.itemsTintColor;
+}
+
+- (void)setFloatingPanelActiveTintColor:(UIColor *)floatingPanelActiveTintColor {
+    [self.floatingPanel setItemsActiveTintColor:floatingPanelActiveTintColor];
+}
+
+- (UIColor *)floatingPanelActiveTintColor {
+    return self.floatingPanel.itemsActiveTintColor;
+}
+
+#pragma mark Navigation
 - (EEMenuTab *)selectedMenuTab {
     return [self menuTabAtIndex:_selectedTabIndex];
 }

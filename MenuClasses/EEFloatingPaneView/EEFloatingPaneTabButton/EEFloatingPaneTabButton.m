@@ -15,6 +15,8 @@
     CAShapeLayer *_segmentLayer;
     UIImageView *_imageView;
     UILabel *_titleLabel;
+    
+    UIColor *_itemTintColor;
 }
 
 - (void)updateHighlightedState;
@@ -35,12 +37,11 @@
         
         [self.titleLabel setText:_menuTab.title];
         
-        [self.imageView setImage:_menuTab.icon];
-        [self.imageView setHighlightedImage:_menuTab.selectedIcon];
+        [self.imageView setImage:[_menuTab.icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
         
         [self setExclusiveTouch:YES];
         
-        [self setBackgroundColor:[UIColor clearColor]];
+        [super setBackgroundColor:[UIColor clearColor]];
     }
     return self;
 }
@@ -51,6 +52,24 @@
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
     return CGPathContainsPoint(self.segmentLayer.path, 0, point, YES);
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    [self.segmentLayer setFillColor:backgroundColor.CGColor];
+}
+
+- (UIColor *)backgroundColor {
+    return [UIColor colorWithCGColor:self.segmentLayer.fillColor];
+}
+
+- (void)setTintColor:(UIColor *)tintColor {
+    _itemTintColor = tintColor;
+    [self updateHighlightedState];
+}
+
+- (void)setActiveTintColor:(UIColor *)activeTintColor {
+    _activeTintColor = activeTintColor;
+    [self updateHighlightedState];
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
@@ -86,17 +105,13 @@
 - (void)updateHighlightedState {
     BOOL lIsHighlighted = self.isSelected || self.isHighlighted;
     
-//    [self.backgroundImageView setHighlighted:lIsHighlighted];
-    [self.imageView setHighlighted:lIsHighlighted];
-    [self.titleLabel setHighlighted:lIsHighlighted];
-    
     if (lIsHighlighted) {
-        [self.titleLabel setShadowOffset:CGSizeMake(0.0f, 0.5f)];
-        [self.titleLabel setShadowColor:[UIColor colorWithWhite:0.0f alpha:0.2f]];
+        [super setTintColor:self.activeTintColor];
     } else {
-        [self.titleLabel setShadowOffset:CGSizeMake(0.0f, 0.0f)];
-        [self.titleLabel setShadowColor:[UIColor colorWithWhite:0.0f alpha:0.0f]];
+        [super setTintColor:_itemTintColor];
     }
+     
+    [self.titleLabel setTextColor:[super tintColor]];
 }
 
 - (CAShapeLayer*)segmentLayer {
@@ -126,8 +141,6 @@
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.imageView.frame) + 2.0f, (SIDE_BAR_WIDTH - ICON_IMAGE_SIZE) / 2.0f, SIDE_BAR_ITEM_WIDTH - CGRectGetMaxX(self.imageView.frame) - ICON_IMAGE_SIZE, ICON_IMAGE_SIZE)];
         [_titleLabel setTextAlignment:NSTextAlignmentCenter];
         [_titleLabel setBackgroundColor:[UIColor clearColor]];
-        [_titleLabel setTextColor:[UIColor colorWithRed:0.1333f green:0.2274f blue:0.3529f alpha:1.0f]];
-        [_titleLabel setHighlightedTextColor:[UIColor colorWithRed:0.2274f green:0.5333f blue:1.0f alpha:1.0f]];
         [_titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
         [_titleLabel setAdjustsFontSizeToFitWidth:YES];
         [_titleLabel setMinimumScaleFactor:0.8f];

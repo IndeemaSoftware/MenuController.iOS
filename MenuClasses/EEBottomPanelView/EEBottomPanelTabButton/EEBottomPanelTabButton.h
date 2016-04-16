@@ -14,6 +14,8 @@
 @property (nonatomic, readonly) EEMenuTab *menuTab;
 @property (nonatomic, readonly) NSUInteger tabIndex;
 
+@property (nonatomic, strong) UIColor *activeTintColor;
+
 - (instancetype)initWithMenuTabType:(EEMenuTab*)menuTab tab:(NSUInteger)tabIndex;
 + (instancetype)buttonWithMenuTabType:(EEMenuTab*)menuTab tab:(NSUInteger)tabIndex;
 

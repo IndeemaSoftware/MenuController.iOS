@@ -15,6 +15,8 @@
     NSMutableArray <EEFloatingPaneTabButton*> *_tabButtonsArr;
 
     EEFloatingPaneTabButton *_selectedTabButton;
+    
+    UIColor *_segmentColor;
 }
 
 - (void)tabButtonPressed:(EEFloatingPaneTabButton*)tabButton;
@@ -30,13 +32,18 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setBackgroundColor:[UIColor colorWithWhite:0.0f alpha:0.0f]];
+        [super setBackgroundColor:[UIColor colorWithWhite:0.0f alpha:0.0f]];
+        
         _side = EEMenuFloatingMenuSideLeft;
         _isVisible = NO;
         
         [self setHidden:YES];
         
         _tabButtonsArr = [NSMutableArray new];
+        
+        _segmentColor = [UIColor whiteColor];
+        _itemsTintColor = [UIColor lightGrayColor];
+        _itemsActiveTintColor = [UIColor colorWithRed:147.0f/255.0f green:207.0f/255.0f blue:28.0f/255.0f alpha:1.0f];
     }
     return self;
 }
@@ -52,6 +59,21 @@
     }
     
     return lReturn;
+}
+
+- (void)setBackgroundColor:(UIColor *)backgroundColor {
+    _segmentColor = backgroundColor;
+    [self updatePanelAppearance];
+}
+
+- (void)setItemsTintColor:(UIColor *)itemsTintColor {
+    _itemsTintColor = itemsTintColor;
+    [self updatePanelAppearance];
+}
+
+- (void)setItemsActiveTintColor:(UIColor *)itemsActiveTintColor {
+    _itemsActiveTintColor = itemsActiveTintColor;
+    [self updatePanelAppearance];
 }
 
 - (void)reloadTabs {
@@ -76,8 +98,10 @@
     for (NSUInteger i = 0; i < lTabsCount; i++) {
         EEFloatingPaneTabButton *lTabButton = [EEFloatingPaneTabButton buttonWithMenuTabType:[self.delegate EEMenuPanelMenuTabatIndex:i] tab:i];
         [lTabButton addTarget:self action:@selector(tabButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        
+        [lTabButton setTintColor:self.itemsTintColor];
+        [lTabButton setActiveTintColor:self.itemsActiveTintColor];
         [lTabButton setAngle:lStartAngle];
+        [lTabButton setBackgroundColor:_segmentColor];
         [lTabButton drawBackgroundWithPath:lSegmentPath];
         
         [_tabButtonsArr addObject:lTabButton];
@@ -174,6 +198,14 @@
 }
 
 #pragma mark - Private methods
+- (void)updatePanelAppearance {
+    for (EEFloatingPaneTabButton *lTabButton in _tabButtonsArr) {
+        [lTabButton setTintColor:self.itemsTintColor];
+        [lTabButton setActiveTintColor:self.itemsActiveTintColor];
+        [lTabButton setBackgroundColor:_segmentColor];
+    }
+}
+
 - (void)tabButtonPressed:(EEFloatingPaneTabButton*)tabButton {
     if (_selectedTabButton.tabIndex == tabButton.tabIndex) {
         return;

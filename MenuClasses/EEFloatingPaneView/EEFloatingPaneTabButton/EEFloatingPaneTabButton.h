@@ -17,6 +17,8 @@
 @property (nonatomic, readonly) NSUInteger tabIndex;
 @property (nonatomic, readwrite) CGFloat angle;
 
+@property (nonatomic, strong) UIColor *activeTintColor;
+
 - (instancetype)initWithMenuTabType:(EEMenuTab*)menuTab tab:(NSUInteger)tabIndex;
 + (instancetype)buttonWithMenuTabType:(EEMenuTab*)menuTab tab:(NSUInteger)tabIndex;
 

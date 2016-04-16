@@ -14,6 +14,8 @@
 @interface EEBottomPanelTabButton() {
     UIImageView *_imageView;
     UILabel *_titleLabel;
+    
+    UIColor *_itemTintColor;
 }
 
 //highliting
@@ -38,8 +40,7 @@
         
         [self.titleLabel setText:_menuTab.title];
         
-        [self.imageView setImage:_menuTab.icon];
-        [self.imageView setHighlightedImage:_menuTab.selectedIcon];
+        [self.imageView setImage:[_menuTab.icon imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
         
         [self setExclusiveTouch:YES];
         [self setBackgroundColor:[UIColor clearColor]];
@@ -56,6 +57,16 @@
     
     [self.imageView setCenter:CGPointMake(roundf(self.frame.size.width / 2.0f), IMAGE_OFFSET + roundf(self.imageView.frame.size.height / 2.0f))];
     [self.titleLabel setFrame:CGRectMake(0.0f, 28.0f, self.frame.size.width, self.titleLabel.frame.size.height)];
+}
+
+- (void)setTintColor:(UIColor *)tintColor {
+    _itemTintColor = tintColor;
+    [self updateHighlightedState];
+}
+
+- (void)setActiveTintColor:(UIColor *)activeTintColor {
+    _activeTintColor = activeTintColor;
+    [self updateHighlightedState];
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
@@ -77,8 +88,13 @@
 - (void)updateHighlightedState {
     BOOL lIsHighlighted = self.isSelected || self.isHighlighted;
     
-    [self.imageView setHighlighted:lIsHighlighted];
-    [self.titleLabel setHighlighted:lIsHighlighted];
+    if (lIsHighlighted) {
+        [super setTintColor:self.activeTintColor];
+    } else {
+        [super setTintColor:_itemTintColor];
+    }
+    
+    [self.titleLabel setTextColor:[super tintColor]];
 }
 
 //image view
@@ -96,8 +112,6 @@
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, IMAGE_SIZE, IMAGE_SIZE)];
         [_titleLabel setTextAlignment:NSTextAlignmentCenter];
         [_titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
-        [_titleLabel setTextColor:[UIColor colorWithRed:0.1333f green:0.2274f blue:0.3529f alpha:1.0f]];
-        [_titleLabel setHighlightedTextColor:[UIColor colorWithRed:0.2274f green:0.5333f blue:1.0f alpha:1.0f]];
         
         [self addSubview:_titleLabel];
     }

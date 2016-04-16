@@ -17,6 +17,9 @@
 @property (nonatomic, readonly) EEMenuFloatingMenuSide side;
 @property (nonatomic, readonly) BOOL isVisible;
 
+@property (nonatomic, strong) UIColor *itemsTintColor;
+@property (nonatomic, strong) UIColor *itemsActiveTintColor;
+
 - (void)reloadTabs;
 - (void)setSelectedTab:(NSUInteger)tabIndex animated:(BOOL)animated;
 

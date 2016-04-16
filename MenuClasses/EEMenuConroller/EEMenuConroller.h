@@ -13,8 +13,18 @@
 
 @interface EEMenuConroller : NSObject
 
+// - - - - - - - - - - - - - - - - - - - - - - - - - Appearance
 @property (nonatomic, readonly) BOOL isFloatingMode;
 
+@property (nonatomic, strong) UIColor *bottomPanelColor;
+@property (nonatomic, strong) UIColor *bottomPanelTintColor;
+@property (nonatomic, strong) UIColor *bottomPanelActiveTintColor;
+
+@property (nonatomic, strong) UIColor *floatingPanelColor;
+@property (nonatomic, strong) UIColor *floatingPanelTintColor;
+@property (nonatomic, strong) UIColor *floatingPanelActiveTintColor;
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - Navigation
 @property (nonatomic, readonly) NSUInteger selectedTabIndex;
 @property (nonatomic, readonly) EEMenuTab *selectedMenuTab;
 @property (nonatomic, readonly) UIViewController *contentViewController;

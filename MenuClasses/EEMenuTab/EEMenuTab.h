@@ -13,7 +13,6 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, strong) UIImage *icon;
-@property (nonatomic, strong) UIImage *selectedIcon;
 @property (nonatomic, strong) UIViewController *viewController;
 
 @end

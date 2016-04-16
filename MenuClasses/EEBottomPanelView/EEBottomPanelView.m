@@ -25,10 +25,7 @@
 }
 
 - (UIImageView*)shadowImageView;
-
-- (UIView*)activeTabView;
-- (CGPoint)centerForActiveTabView;
-- (void)updateActiveTabViewPositionAnimated:(BOOL)animated;
+- (void)updatePanelAppearance;
 - (void)tabButtonPressed:(EEBottomPanelTabButton*)tabButton;
 @end
 
@@ -39,9 +36,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.opaque = YES;
+        
         self.backgroundColor = [UIColor colorWithWhite:0.95f alpha:1.0f];
         
         _tabButtonsArr = [NSMutableArray new];
+        
+        _itemsTintColor = [UIColor lightGrayColor];
+        _itemsActiveTintColor = [UIColor colorWithRed:147.0f/255.0f green:207.0f/255.0f blue:28.0f/255.0f alpha:1.0f];
     }
     return self;
 }
@@ -57,9 +58,16 @@
         EEBottomPanelTabButton *lTabButton = _tabButtonsArr[index];
         [lTabButton setFrame:CGRectMake(index * lButtonWidth, 0.0f, lButtonWidth, self.frame.size.height)];
     }
-    
-    // layout activeTabView
-    [self.activeTabView setCenter:[self centerForActiveTabView]];
+}
+
+- (void)setItemsTintColor:(UIColor *)itemsTintColor {
+    _itemsTintColor = itemsTintColor;
+    [self updatePanelAppearance];
+}
+
+- (void)setItemsActiveTintColor:(UIColor *)itemsActiveTintColor {
+    _itemsActiveTintColor = itemsActiveTintColor;
+    [self updatePanelAppearance];
 }
 
 - (void)reloadTabs {
@@ -79,6 +87,8 @@
     for (NSUInteger i = 0; i < lTabsCount; i++) {
         EEBottomPanelTabButton *lTabButton = [EEBottomPanelTabButton buttonWithMenuTabType:[self.delegate EEMenuPanelMenuTabatIndex:i] tab:i];
         [lTabButton addTarget:self action:@selector(tabButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [lTabButton setTintColor:self.itemsTintColor];
+        [lTabButton setActiveTintColor:self.itemsActiveTintColor];
         [_tabButtonsArr addObject:lTabButton];
         [self addSubview:lTabButton];
     }
@@ -94,8 +104,6 @@
     
     _selectedTabButton = _tabButtonsArr[tabIndex];
     [_selectedTabButton setSelected:YES];
-    
-    [self updateActiveTabViewPositionAnimated:animated];
 }
 
 - (void)setShadowHidden:(BOOL)shadowHidden {
@@ -113,28 +121,10 @@
     return _shadowImgView;
 }
 
-- (UIView*)activeTabView {
-    if (_activeTabView == nil) {
-        _activeTabView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, BOTTOM_PANEL_HEIGHT - 2.0f, 70.0f, 2.0f)];
-        [self addSubview:_activeTabView];
-    }
-    
-    return _activeTabView;
-}
-
-- (CGPoint)centerForActiveTabView {
-    return CGPointMake(_selectedTabButton.center.x, self.activeTabView.center.y);
-}
-
-- (void)updateActiveTabViewPositionAnimated:(BOOL)animated {
-    void (^animationBlock)(void) = ^{
-        [self.activeTabView setCenter:[self centerForActiveTabView]];
-    };
-    
-    if (animated) {
-        [UIView animateWithDuration:0.2f delay:0.0f options:(7<<16) animations:animationBlock completion:nil];
-    } else {
-        animationBlock();
+- (void)updatePanelAppearance {
+    for (EEBottomPanelTabButton *lTabButton in _tabButtonsArr) {
+        [lTabButton setTintColor:self.itemsTintColor];
+        [lTabButton setActiveTintColor:self.itemsActiveTintColor];
     }
 }
 
