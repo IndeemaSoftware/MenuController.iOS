@@ -73,7 +73,7 @@
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
-    return _currentViewController.preferredInterfaceOrientationForPresentation;
+    return UIInterfaceOrientationPortrait;
 }
 
 - (void)setFloatingAreaInsets:(UIEdgeInsets)floatingAreaInsets {

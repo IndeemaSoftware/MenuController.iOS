@@ -228,9 +228,7 @@
         
         _selectedTabIndex = tabIndex;
         
-        if (!self.isFloatingMode) {
-            [self sendBottomInset:_bottomInset to:lNewMenuTab.viewController animated:NO];
-        }
+        [self sendBottomInset:_bottomInset to:lNewMenuTab.viewController animated:NO];
     }
 }
 
@@ -590,9 +588,7 @@
 
 - (void)updateBottomInset:(CGFloat)bottomInset animated:(BOOL)animated {
     _bottomInset = bottomInset;
-    if (self.selectedMenuTab) {
-        [self sendBottomInset:bottomInset to:self.selectedMenuTab.viewController animated:animated];
-    }
+    [self sendBottomInset:bottomInset to:self.selectedMenuTab.viewController animated:animated];
 }
 
 - (void)sendBottomInset:(CGFloat)bottomInset to:(UIViewController <EEMenuContentProtocol> *)contentVC animated:(BOOL)animated {
