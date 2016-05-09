@@ -13,7 +13,7 @@ Floating menu for an iOS application
 You can find an article about Floating menu in our [blog](http://indeema.com/blog/how-we-created-a-floating-menu-for-an-ios-application)
 
 <p align="center">
-  <img src="/GitHubResources/floating_menu_animation.gif" alt="Floating menu" width="320" height="568"> />
+  <img src="/GitHubResources/floating_menu_animation.gif" alt="Floating menu" width="320" height="568" />
 </p>
 
 ## Requirements
