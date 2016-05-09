@@ -133,6 +133,7 @@
         [_rightSegmentLayer setShadowOpacity:1.0f];
         [_rightSegmentLayer setShadowRadius:1.0f];
         [_rightSegmentLayer setShadowOffset:CGSizeMake(0.0f, 0.0f)];
+        _rightSegmentLayer.contentsScale = [UIScreen mainScreen].scale;
         
         [self.layer insertSublayer:_rightSegmentLayer atIndex:0];
     }

@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EEThirdViewController">
             <connections>
-                <outlet property="_textView" destination="Tgr-LY-rIa" id="fzQ-5B-JjD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,53 +15,33 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Tgr-LY-rIa">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z9S-gd-DVl">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <string key="text">Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third 
-Third
-Third </string>
-                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen3" translatesAutoresizingMaskIntoConstraints="NO" id="Npj-PE-sBv">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="Npj-PE-sBv" firstAttribute="top" secondItem="Z9S-gd-DVl" secondAttribute="top" id="6cn-7k-zPL"/>
+                        <constraint firstAttribute="bottom" secondItem="Npj-PE-sBv" secondAttribute="bottom" id="Hfw-HW-9OA"/>
+                        <constraint firstAttribute="trailing" secondItem="Npj-PE-sBv" secondAttribute="trailing" id="Vgy-lJ-WkH"/>
+                        <constraint firstItem="Npj-PE-sBv" firstAttribute="leading" secondItem="Z9S-gd-DVl" secondAttribute="leading" id="wId-i8-qdh"/>
+                    </constraints>
+                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Tgr-LY-rIa" secondAttribute="trailing" id="NtH-Tc-oly"/>
-                <constraint firstAttribute="bottom" secondItem="Tgr-LY-rIa" secondAttribute="bottom" id="Saz-Z0-fgh"/>
-                <constraint firstItem="Tgr-LY-rIa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XUW-YP-pQc"/>
-                <constraint firstItem="Tgr-LY-rIa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="s3I-B9-PFb"/>
+                <constraint firstItem="Z9S-gd-DVl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Q5o-AC-knY"/>
+                <constraint firstAttribute="trailing" secondItem="Z9S-gd-DVl" secondAttribute="trailing" id="cN0-JV-Pjn"/>
+                <constraint firstAttribute="bottom" secondItem="Z9S-gd-DVl" secondAttribute="bottom" id="pgW-67-Fil"/>
+                <constraint firstItem="Z9S-gd-DVl" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="w9V-Kd-qck"/>
             </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="screen3" width="320" height="568"/>
+    </resources>
 </document>

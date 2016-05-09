@@ -32,18 +32,18 @@
     
     [EEMenuConroller.shareInstance setBottomPanelColor:[UIColor colorWithWhite:0.95f alpha:1.0f]];
     [EEMenuConroller.shareInstance setBottomPanelTintColor:[UIColor lightGrayColor]];
-    [EEMenuConroller.shareInstance setBottomPanelActiveTintColor:[UIColor colorWithRed:147.0f/255.0f green:207.0f/255.0f blue:28.0f/255.0f alpha:1.0f]];
+    [EEMenuConroller.shareInstance setBottomPanelActiveTintColor:[UIColor colorWithRed:64.0f/255.0f green:171.0f/255.0f blue:247.0f/255.0f alpha:1.0f]];
     
     [EEMenuConroller.shareInstance setFloatingPanelColor:[UIColor whiteColor]];
     [EEMenuConroller.shareInstance setFloatingPanelTintColor:[UIColor lightGrayColor]];
-    [EEMenuConroller.shareInstance setFloatingPanelActiveTintColor:[UIColor colorWithRed:147.0f/255.0f green:207.0f/255.0f blue:28.0f/255.0f alpha:1.0f]];
-    
-    [EEMenuConroller.shareInstance setFloatingAreaInsets:UIEdgeInsetsMake(100.0f, 0.0f, 0.0f, 0.0f)];
+    [EEMenuConroller.shareInstance setFloatingPanelActiveTintColor:[UIColor colorWithRed:64.0f/255.0f green:171.0f/255.0f blue:247.0f/255.0f alpha:1.0f]];
     
     [self initializeTabs];
     
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -69,18 +69,18 @@
 
 - (void)initializeTabs {
     EEMenuTab *lMenuTab1 = [EEMenuTab new];
-    lMenuTab1.title = @"First tab";
-    lMenuTab1.icon = [UIImage imageNamed:@"first_tab"];
+    lMenuTab1.title = @"Messages";
+    lMenuTab1.icon = [UIImage imageNamed:@"messages_tab"];
     lMenuTab1.viewController = [EEFirstViewController newWithNimbAsClassName];
     
     EEMenuTab *lMenuTab2 = [EEMenuTab new];
-    lMenuTab2.title = @"Second tab";
-    lMenuTab2.icon = [UIImage imageNamed:@"second_tab"];
+    lMenuTab2.title = @"Profile";
+    lMenuTab2.icon = [UIImage imageNamed:@"profile_tab"];
     lMenuTab2.viewController = [EESecondViewController newWithNimbAsClassName];
     
     EEMenuTab *lMenuTab3 = [EEMenuTab new];
-    lMenuTab3.title = @"Third tab";
-    lMenuTab3.icon = [UIImage imageNamed:@"third_tab"];
+    lMenuTab3.title = @"Settings";
+    lMenuTab3.icon = [UIImage imageNamed:@"setting_tab"];
     lMenuTab3.viewController = [EEThirdViewController newWithNimbAsClassName];
     
     [[EEMenuConroller shareInstance] loadTabs:@[lMenuTab1, lMenuTab2, lMenuTab3]];

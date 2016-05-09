@@ -147,6 +147,7 @@
 
 - (void)setFloatingPanelActiveTintColor:(UIColor *)floatingPanelActiveTintColor {
     [self.floatingPanel setItemsActiveTintColor:floatingPanelActiveTintColor];
+    [self.floatingButton setTintColor:floatingPanelActiveTintColor];
 }
 
 - (UIColor *)floatingPanelActiveTintColor {
@@ -260,7 +261,7 @@
 #pragma mark Menu Panels
 - (EEFloatingButton*)floatingButton {
     if (_floatingButton == nil) {
-        _floatingButton = [[EEFloatingButton alloc] initWithFrame:CGRectMake(-FLOATING_VIEW_SIZE, self.contentVC.floatingAreaCenter.y, FLOATING_VIEW_SIZE, FLOATING_VIEW_SIZE)];
+        _floatingButton = [[EEFloatingButton alloc] initWithFrame:CGRectMake(-FLOATING_VIEW_SIZE, self.contentVC.floatingAreaCenter.y, FLOATING_VIEW_SIZE-4.0f, FLOATING_VIEW_SIZE-4.0f)];
         [_floatingButton setSide:EEMenuFloatingMenuSideLeft];
         
         UIPanGestureRecognizer *lPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureHandler:)];

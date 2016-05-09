@@ -8,7 +8,9 @@
 
 #import "EEFirstViewController.h"
 
-@interface EEFirstViewController ()
+@interface EEFirstViewController () {
+    IBOutlet UIScrollView *_scrollView;
+}
 
 @end
 
@@ -31,7 +33,17 @@
 
 #pragma mark - EEMenuContent protocol
 - (void)EEMenuContentBottomInsetChanged:(CGFloat)bottomInset animated:(BOOL)animated {
-    
+    if (self.isViewLoaded) {
+        if (animated) {
+            [UIView animateWithDuration:0.25f animations:^{
+                [_scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, bottomInset, 0.0f)];
+                [_scrollView setScrollIndicatorInsets:UIEdgeInsetsMake(0.0f, 0.0f, bottomInset, 0.0f)];
+            }];
+        } else {
+            [_scrollView setContentInset:UIEdgeInsetsMake(0.0f, 0.0f, bottomInset, 0.0f)];
+            [_scrollView setScrollIndicatorInsets:UIEdgeInsetsMake(0.0f, 0.0f, bottomInset, 0.0f)];
+        }
+    }
 }
 
 @end

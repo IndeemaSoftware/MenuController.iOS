@@ -178,7 +178,7 @@
     CGRect lBounds = self.view.bounds;
     UIEdgeInsets lInsets = self.floatingAreaInsets;
     
-    _floatingAreaBounds = CGRectMake(BOTTOM_PANEL_HEIGHT / 2.0 - 10.0f + lInsets.left, lInsets.top, lBounds.size.width - BOTTOM_PANEL_HEIGHT / 2.0 + 10.0f - lInsets.right, lBounds.size.height - BOTTOM_PANEL_HEIGHT / 2.0);
+    _floatingAreaBounds = CGRectMake(BOTTOM_PANEL_HEIGHT / 2.0 - 15.0f + lInsets.left, lInsets.top, lBounds.size.width - BOTTOM_PANEL_HEIGHT / 2.0 + 15.0f - lInsets.right, lBounds.size.height - BOTTOM_PANEL_HEIGHT / 2.0);
     _floatingAreaCenter = CGPointMake(CGRectGetMidX(_floatingAreaBounds), CGRectGetMidY(_floatingAreaBounds));
 }
 @end

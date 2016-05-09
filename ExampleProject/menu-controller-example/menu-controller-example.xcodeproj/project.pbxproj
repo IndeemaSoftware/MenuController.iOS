@@ -26,7 +26,6 @@
 		05B59AC51CBFDEC4005B23D5 /* EEFirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B59AC31CBFDEC4005B23D5 /* EEFirstViewController.xib */; };
 		05B59ACA1CBFDF63005B23D5 /* EEThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59AC81CBFDF63005B23D5 /* EEThirdViewController.m */; };
 		05B59ACB1CBFDF63005B23D5 /* EEThirdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05B59AC91CBFDF63005B23D5 /* EEThirdViewController.xib */; };
-		05B59ACF1CBFFFFA005B23D5 /* EESegmentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B59ACE1CBFFFFA005B23D5 /* EESegmentLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,8 +66,6 @@
 		05B59AC71CBFDF63005B23D5 /* EEThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EEThirdViewController.h; path = EEThirdViewController/EEThirdViewController.h; sourceTree = "<group>"; };
 		05B59AC81CBFDF63005B23D5 /* EEThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EEThirdViewController.m; path = EEThirdViewController/EEThirdViewController.m; sourceTree = "<group>"; };
 		05B59AC91CBFDF63005B23D5 /* EEThirdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EEThirdViewController.xib; path = EEThirdViewController/EEThirdViewController.xib; sourceTree = "<group>"; };
-		05B59ACD1CBFFFFA005B23D5 /* EESegmentLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EESegmentLayer.h; path = EEFloatingPaneView/EESegmentLayer/EESegmentLayer.h; sourceTree = "<group>"; };
-		05B59ACE1CBFFFFA005B23D5 /* EESegmentLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EESegmentLayer.m; path = EEFloatingPaneView/EESegmentLayer/EESegmentLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,7 +249,6 @@
 		05B59A861CBEB5C5005B23D5 /* EEFloatingPaneView */ = {
 			isa = PBXGroup;
 			children = (
-				05B59ACC1CBFFFDB005B23D5 /* EESegmentLayer */,
 				05B59A8A1CBEB9D5005B23D5 /* EEFloatingPaneTabButton */,
 				05B59A871CBEB5E3005B23D5 /* EEFloatingPaneView.h */,
 				05B59A881CBEB5E3005B23D5 /* EEFloatingPaneView.m */,
@@ -297,15 +293,6 @@
 				05B59AC91CBFDF63005B23D5 /* EEThirdViewController.xib */,
 			);
 			name = EEThirdViewController;
-			sourceTree = "<group>";
-		};
-		05B59ACC1CBFFFDB005B23D5 /* EESegmentLayer */ = {
-			isa = PBXGroup;
-			children = (
-				05B59ACD1CBFFFFA005B23D5 /* EESegmentLayer.h */,
-				05B59ACE1CBFFFFA005B23D5 /* EESegmentLayer.m */,
-			);
-			name = EESegmentLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,7 +370,6 @@
 			files = (
 				05B59A891CBEB5E3005B23D5 /* EEFloatingPaneView.m in Sources */,
 				05B59AC41CBFDEC4005B23D5 /* EEFirstViewController.m in Sources */,
-				05B59ACF1CBFFFFA005B23D5 /* EESegmentLayer.m in Sources */,
 				05B59A8D1CBEB9F0005B23D5 /* EEFloatingPaneTabButton.m in Sources */,
 				05B59A491CBE91C4005B23D5 /* UIViewController+Initializing.m in Sources */,
 				05B59A811CBEAB73005B23D5 /* EEMenuTab.m in Sources */,

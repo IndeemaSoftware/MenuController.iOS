@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EEFirstViewController">
             <connections>
+                <outlet property="_scrollView" destination="Dn4-BT-ss1" id="Q81-OC-TeI"/>
                 <outlet property="view" destination="iN0-l3-epB" id="o0i-oe-h01"/>
             </connections>
         </placeholder>
@@ -15,20 +16,44 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lPO-Wq-fhc">
-                    <rect key="frame" x="126" y="262" width="69" height="43"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                    <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dn4-BT-ss1">
+                    <rect key="frame" x="0.0" y="68" width="320" height="500"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen1" translatesAutoresizingMaskIntoConstraints="NO" id="ba5-vK-IVd">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="1086"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ba5-vK-IVd" secondAttribute="trailing" id="Clc-CW-ikp"/>
+                        <constraint firstAttribute="bottom" secondItem="ba5-vK-IVd" secondAttribute="bottom" id="VJ8-ly-xo6"/>
+                        <constraint firstItem="ba5-vK-IVd" firstAttribute="leading" secondItem="Dn4-BT-ss1" secondAttribute="leading" id="Vpk-4L-bbW"/>
+                        <constraint firstItem="ba5-vK-IVd" firstAttribute="top" secondItem="Dn4-BT-ss1" secondAttribute="top" id="boA-c1-ntX"/>
+                    </constraints>
+                </scrollView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="screen1_header" translatesAutoresizingMaskIntoConstraints="NO" id="xX2-ur-48y">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="68"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="68" id="XBK-Bd-vR2"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="lPO-Wq-fhc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Bmv-6F-eXU"/>
-                <constraint firstItem="lPO-Wq-fhc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="bkP-Ma-MSe"/>
+                <constraint firstAttribute="trailing" secondItem="xX2-ur-48y" secondAttribute="trailing" id="5xI-Al-uxD"/>
+                <constraint firstAttribute="bottom" secondItem="Dn4-BT-ss1" secondAttribute="bottom" id="Dk2-pN-Lpp"/>
+                <constraint firstItem="xX2-ur-48y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="KbK-UH-V1G"/>
+                <constraint firstAttribute="trailing" secondItem="Dn4-BT-ss1" secondAttribute="trailing" id="TLS-9H-P2N"/>
+                <constraint firstItem="Dn4-BT-ss1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VFV-Vi-cp5"/>
+                <constraint firstItem="Dn4-BT-ss1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="68" id="Yaw-mz-IzA"/>
+                <constraint firstItem="xX2-ur-48y" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qbz-bZ-Km4"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="106" y="373"/>
+            <point key="canvasLocation" x="79" y="362"/>
         </view>
     </objects>
+    <resources>
+        <image name="screen1" width="320" height="1086"/>
+        <image name="screen1_header" width="320" height="68"/>
+    </resources>
 </document>
