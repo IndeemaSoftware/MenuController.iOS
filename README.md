@@ -1,7 +1,11 @@
 <br>
-<p align="center">
+
+
+<a href="http://www.indeema.com">
+  <p align="center">
   <img src="http://indeema.com/images/logoIn.png" alt="Indeema Logo"/>
 </p>
+</a>
 <br>
 # MenuController.iOS
 Floating menu for an iOS application
@@ -9,7 +13,7 @@ Floating menu for an iOS application
 You can find an article about Floating menu in our [blog](http://indeema.com/blog/how-we-created-a-floating-menu-for-an-ios-application)
 
 <p align="center">
-  <img src="/GitHubResources/floating_menu_animation_small.gif" alt="Floating menu"/>
+  <img src="/GitHubResources/floating_menu_animation.gif" alt="Floating menu" width="320" height="568"> />
 </p>
 
 ## Requirements
