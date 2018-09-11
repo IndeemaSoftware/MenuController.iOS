@@ -37,3 +37,4 @@ Select color patterns for both panels(bottom/foating):
 [EEMenuConroller.shareInstance setFloatingPanelActiveTintColor:[UIColor colorWithRed:64.0f/255.0f green:171.0f/255.0f blue:247.0f/255.0f alpha:1.0f]];
 ```
 
+To know more about us and our [Mobile expertise](https://indeema.com/services/mobiledevelopment), visit our website https://indeema.com
